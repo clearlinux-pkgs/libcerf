@@ -1,0 +1,15 @@
+libcerf.so.1:cdawson
+libcerf.so.1:cerf
+libcerf.so.1:cerfc
+libcerf.so.1:cerfcx
+libcerf.so.1:cerfi
+libcerf.so.1:dawson
+libcerf.so.1:erfcx
+libcerf.so.1:erfi
+libcerf.so.1:hwhm0
+libcerf.so.1:im_w_of_x
+libcerf.so.1:im_w_of_z
+libcerf.so.1:re_w_of_z
+libcerf.so.1:voigt
+libcerf.so.1:voigt_hwhm
+libcerf.so.1:w_of_z
