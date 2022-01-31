@@ -4,7 +4,7 @@
 #
 Name     : libcerf
 Version  : 1.17
-Release  : 2
+Release  : 3
 URL      : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Source0  : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Summary  : Complex error function library
