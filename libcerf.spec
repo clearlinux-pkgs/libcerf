@@ -4,13 +4,12 @@
 #
 Name     : libcerf
 Version  : 1.17
-Release  : 3
+Release  : 4
 URL      : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Source0  : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Summary  : Complex error function library
 Group    : Development/Tools
 License  : MIT
-Requires: libcerf-filemap = %{version}-%{release}
 Requires: libcerf-lib = %{version}-%{release}
 Requires: libcerf-license = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -48,19 +47,10 @@ Group: Documentation
 doc components for the libcerf package.
 
 
-%package filemap
-Summary: filemap components for the libcerf package.
-Group: Default
-
-%description filemap
-filemap components for the libcerf package.
-
-
 %package lib
 Summary: lib components for the libcerf package.
 Group: Libraries
 Requires: libcerf-license = %{version}-%{release}
-Requires: libcerf-filemap = %{version}-%{release}
 
 %description lib
 lib components for the libcerf package.
@@ -83,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1642778141
+export SOURCE_DATE_EPOCH=1656045809
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -103,10 +93,10 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
 export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export FFLAGS="$FFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
@@ -120,10 +110,10 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -msse2avx -mtune=skylake "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -msse2avx -mtune=skylake "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -msse2avx -mtune=skylake "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -msse2avx -mtune=skylake "
 export CFLAGS="$CFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
 export CXXFLAGS="$CXXFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
 export FFLAGS="$FFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
@@ -133,7 +123,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1642778141
+export SOURCE_DATE_EPOCH=1656045809
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcerf
 cp %{_builddir}/libcerf-v1.17/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/a60a8d7195921cdf4dd97d3b150a2cc50ac115da
@@ -147,8 +137,8 @@ popd
 pushd clr-build
 %make_install
 popd
-/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
-/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot}/usr/share/clear/optimized-elf/ %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
+/usr/bin/elf-move.py avx512 %{buildroot}-v4 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
@@ -186,15 +176,16 @@ popd
 /usr/share/doc/cerf/html/voigt_hwhm.html
 /usr/share/doc/cerf/html/w_of_z.html
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-libcerf
-
 %files lib
 %defattr(-,root,root,-)
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcerf.so
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcerf.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v3/libcerf.so.1.17
+/usr/lib64/glibc-hwcaps/x86-64-v4/libcerf.so
+/usr/lib64/glibc-hwcaps/x86-64-v4/libcerf.so.1
+/usr/lib64/glibc-hwcaps/x86-64-v4/libcerf.so.1.17
 /usr/lib64/libcerf.so.1
 /usr/lib64/libcerf.so.1.17
-/usr/share/clear/optimized-elf/lib*
 
 %files license
 %defattr(0644,root,root,0755)
