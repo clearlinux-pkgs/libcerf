@@ -4,7 +4,7 @@
 #
 Name     : libcerf
 Version  : 1.17
-Release  : 4
+Release  : 5
 URL      : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Source0  : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Summary  : Complex error function library
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1656045809
+export SOURCE_DATE_EPOCH=1656129475
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -123,7 +123,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1656045809
+export SOURCE_DATE_EPOCH=1656129475
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcerf
 cp %{_builddir}/libcerf-v1.17/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/a60a8d7195921cdf4dd97d3b150a2cc50ac115da
