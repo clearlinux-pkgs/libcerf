@@ -4,7 +4,7 @@
 #
 Name     : libcerf
 Version  : 1.17
-Release  : 10
+Release  : 11
 URL      : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Source0  : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Summary  : Complex error function library
@@ -73,7 +73,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1665088916
+export SOURCE_DATE_EPOCH=1667430023
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -110,24 +110,24 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mtune=skylake "
-export CFLAGS="$CFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
-export CXXFLAGS="$CXXFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
-export FFLAGS="$FFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 "
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mprefer-vector-width=512 -mtune=sapphirerapids "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mprefer-vector-width=512 -mtune=sapphirerapids "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mprefer-vector-width=512 -mtune=sapphirerapids "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v4 -ffat-lto-objects -flto=auto -march=x86_64-v4 -mprefer-vector-width=512 -mtune=sapphirerapids "
+export CFLAGS="$CFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 -mprefer-vector-width=512"
+export CXXFLAGS="$CXXFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 -mprefer-vector-width=512"
+export FFLAGS="$FFLAGS -march=x86-64-v4 -m64 -Wl,-z,x86-64-v4 -mprefer-vector-width=512"
 export FCFLAGS="$FCFLAGS -march=x86-64-v4 -m64 "
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1665088916
+export SOURCE_DATE_EPOCH=1667430023
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcerf
-cp %{_builddir}/libcerf-v%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/a60a8d7195921cdf4dd97d3b150a2cc50ac115da
-cp %{_builddir}/libcerf-v%{version}/fortran/ccerflib_f95_interface/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/c5e64621385e175c53415e3c48d4627775c4ee8e
+cp %{_builddir}/libcerf-v%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/a60a8d7195921cdf4dd97d3b150a2cc50ac115da || :
+cp %{_builddir}/libcerf-v%{version}/fortran/ccerflib_f95_interface/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/c5e64621385e175c53415e3c48d4627775c4ee8e || :
 pushd clr-build-avx2
 %make_install_v3  || :
 popd
