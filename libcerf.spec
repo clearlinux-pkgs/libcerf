@@ -5,7 +5,7 @@
 #
 Name     : libcerf
 Version  : 1.17
-Release  : 14
+Release  : 15
 URL      : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Source0  : https://jugit.fz-juelich.de/mlz/libcerf/-/archive/v1.17/libcerf-v1.17.tar.gz
 Summary  : Complex error function library
@@ -77,7 +77,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1682994121
+export SOURCE_DATE_EPOCH=1685636547
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -127,7 +127,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1682994121
+export SOURCE_DATE_EPOCH=1685636547
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/libcerf
 cp %{_builddir}/libcerf-v%{version}/LICENSE %{buildroot}/usr/share/package-licenses/libcerf/a60a8d7195921cdf4dd97d3b150a2cc50ac115da || :
@@ -149,8 +149,6 @@ popd
 
 %files dev
 %defattr(-,root,root,-)
-/V3/usr/lib64/libcerf.so
-/V4/usr/lib64/libcerf.so
 /usr/include/cerf.h
 /usr/lib64/libcerf.so
 /usr/lib64/pkgconfig/libcerf.pc
@@ -184,9 +182,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/V3/usr/lib64/libcerf.so.1
 /V3/usr/lib64/libcerf.so.1.17
-/V4/usr/lib64/libcerf.so.1
 /V4/usr/lib64/libcerf.so.1.17
 /usr/lib64/libcerf.so.1
 /usr/lib64/libcerf.so.1.17
